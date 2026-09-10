@@ -1,0 +1,167 @@
+:root {
+  --ink: #edf4f1;
+  --muted: #9aa9a4;
+  --line: #2b3a37;
+  --paper: #101816;
+  --white: #17231f;
+  --mint: #9fe8c2;
+  --mint-dark: #80d5ab;
+  --orange: #f2a67c;
+  --soft-orange: #38251d;
+  --blue: #8fb9df;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.sidebar,
+.panel,
+.metric-card,
+.fleet-card,
+.modal,
+.search-field,
+.select-small,
+.filter-button,
+.icon-button,
+.row-menu,
+.small-button,
+.form-field input,
+.form-field select,
+.chart-panel,
+.activity-panel,
+.table-panel {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.sidebar {
+  border-right-color: var(--line);
+}
+
+.brand,
+.panel h2,
+.metric-card strong,
+.fleet-card h3,
+.modal h2,
+.form-field label,
+.activity-copy strong,
+.user-block strong,
+.help-card strong {
+  color: var(--ink);
+}
+
+.nav-item {
+  color: var(--muted);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #1d3a30;
+  color: var(--mint);
+}
+
+.brand-mark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.help-card,
+.chart .gridline,
+.table-panel td,
+.table-panel th {
+  border-color: var(--line);
+}
+
+.help-card small,
+.user-block small,
+.panel-heading p,
+.subheading,
+.eyebrow,
+.metric-card p,
+.car-info p,
+.car-meta,
+.activity-time,
+.toolbar-summary,
+.form-field small,
+.modal-subtitle {
+  color: var(--muted);
+}
+
+.help-dot {
+  box-shadow: 0 0 0 4px #203a30;
+}
+
+.search-field input,
+.form-field input,
+.form-field select,
+.select-small {
+  color: var(--ink);
+}
+
+.search-field input::placeholder,
+.form-field input::placeholder {
+  color: #71817b;
+}
+
+.filter-button:hover,
+.filter-button.active,
+.small-button:hover,
+.row-menu:hover,
+.icon-button:hover {
+  background: #213b32;
+  color: var(--mint);
+}
+
+.status.available,
+.status.active {
+  background: #214a3a;
+  color: #9fe8c2;
+}
+
+.status.rented,
+.status.confirmed {
+  background: #263e55;
+  color: #a9d1f1;
+}
+
+.status.service,
+.status.completed {
+  background: #513322;
+  color: #ffc09a;
+}
+
+.table-panel tr:hover {
+  background: #1c2b27;
+}
+
+.mini-avatar,
+.activity-avatar.green {
+  background: #244537 !important;
+  color: #a9e8c6;
+}
+
+.activity-avatar.peach {
+  background: #4b3026 !important;
+  color: #ffc4a4;
+}
+
+.activity-avatar.blue {
+  background: #263d55 !important;
+  color: #afd4f2;
+}
+
+.modal-backdrop {
+  background: rgba(3, 8, 7, .78);
+}
+
+.close-button {
+  color: var(--muted);
+}
+
+.toast {
+  background: #d8f5e5;
+  color: #173629;
+}
