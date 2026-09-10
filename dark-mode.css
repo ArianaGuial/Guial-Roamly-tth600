@@ -165,3 +165,534 @@ body {
   background: #d8f5e5;
   color: #173629;
 }
+
+/* Control-room overview */
+#dashboardPage > .dashboard-grid,
+#dashboardPage > .table-panel {
+  display: none;
+}
+
+.dashboard-command {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 26px;
+  align-items: center;
+  margin: 28px 0 18px;
+  padding: 18px 22px;
+  border: 1px solid #2e5244;
+  border-radius: 10px;
+  background: linear-gradient(105deg, #18372d, #14251f 72%);
+}
+
+.command-signal,
+.command-date,
+.command-weather {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.command-signal > span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #9fe8c2;
+  box-shadow: 0 0 0 5px rgba(159, 232, 194, .12);
+}
+
+.command-signal strong,
+.command-date strong,
+.command-weather strong {
+  display: block;
+  color: #e7f6ee;
+  font-size: 13px;
+}
+
+.command-signal small,
+.command-date small,
+.command-weather small {
+  display: block;
+  margin-top: 3px;
+  color: #8eb3a3;
+  font-size: 10px;
+}
+
+.command-date {
+  padding-left: 24px;
+  border-left: 1px solid #315346;
+}
+
+.command-weather {
+  padding-left: 24px;
+  border-left: 1px solid #315346;
+}
+
+.command-weather > span {
+  color: #f2c486;
+  font-size: 24px;
+}
+
+.metric-grid {
+  margin-bottom: 18px;
+}
+
+.metric-card {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.action-tile {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  column-gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #15221e;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.action-tile:hover {
+  border-color: #4d8d70;
+  background: #1b3028;
+}
+
+.action-tile > span {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #244a3a;
+  color: var(--mint);
+  font-size: 18px;
+}
+
+.action-tile strong {
+  font-size: 12px;
+}
+
+.action-tile small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.dashboard-command-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, .85fr);
+  gap: 18px;
+}
+
+.schedule-panel,
+.readiness-panel {
+  min-height: 300px;
+  padding: 22px;
+}
+
+.schedule-list {
+  margin-top: 24px;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 48px 12px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 62px;
+  border-bottom: 1px solid #24332f;
+}
+
+.schedule-item:last-child {
+  border-bottom: 0;
+}
+
+.schedule-time {
+  color: #b9c9c3;
+  font: 500 11px 'DM Mono', monospace;
+}
+
+.schedule-line {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #72c99e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #1d3c30;
+}
+
+.schedule-item strong,
+.schedule-item small {
+  display: block;
+}
+
+.schedule-item strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.schedule-item small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.readiness-score {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 25px 0 28px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #1d3029;
+}
+
+.readiness-score > strong {
+  color: #9fe8c2;
+  font-size: 34px;
+  letter-spacing: -2px;
+}
+
+.readiness-score > strong span {
+  color: #6ea98b;
+  font-size: 17px;
+}
+
+.readiness-score small,
+.readiness-score p {
+  display: block;
+  margin: 0;
+}
+
+.readiness-score small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.readiness-score p {
+  margin-top: 5px;
+  color: #8fd3ae;
+  font-size: 11px;
+}
+
+.readiness-bars > div {
+  margin-bottom: 17px;
+}
+
+.readiness-bars span {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.readiness-bars b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.readiness-bars i {
+  display: block;
+  height: 5px;
+  border-radius: 10px;
+  background: #263530;
+}
+
+.readiness-bars u {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #80d5ab;
+  text-decoration: none;
+}
+
+.readiness-bars u.road {
+  background: #8fb9df;
+}
+
+.readiness-bars u.service {
+  background: #f2a67c;
+}
+
+@media (max-width: 850px) {
+  .dashboard-command {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .command-weather {
+    display: none;
+  }
+
+  .dashboard-command-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-command,
+  .dashboard-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .command-date {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .schedule-item {
+    grid-template-columns: 42px 10px minmax(0, 1fr);
+  }
+
+  .schedule-item .status {
+    grid-column: 3;
+    justify-self: start;
+    margin: -8px 0 10px;
+  }
+}
+
+/* Black and blue theme */
+:root {
+  --ink: #e8f1ff;
+  --muted: #8d9bb0;
+  --line: #263449;
+  --paper: #070b12;
+  --white: #0d1420;
+  --mint: #64b5ff;
+  --mint-dark: #3d9df0;
+  --orange: #64b5ff;
+  --soft-orange: #18253a;
+  --blue: #64b5ff;
+}
+
+body {
+  background: #070b12;
+}
+
+.sidebar,
+.panel,
+.metric-card,
+.fleet-card,
+.modal,
+.search-field,
+.select-small,
+.filter-button,
+.icon-button,
+.row-menu,
+.small-button,
+.form-field input,
+.form-field select,
+.chart-panel,
+.activity-panel,
+.table-panel {
+  background: #0d1420;
+  border-color: #263449;
+}
+
+.nav-item:hover,
+.nav-item.active,
+.filter-button:hover,
+.filter-button.active,
+.small-button:hover,
+.row-menu:hover,
+.icon-button:hover {
+  background: #102d4b;
+  color: #64b5ff;
+}
+
+.brand-mark {
+  background: #e8f1ff;
+  color: #070b12;
+}
+
+.avatar,
+.top-avatar {
+  background: #17375a;
+  color: #b7dcff;
+}
+
+.metric-card em,
+.metric-icon.alert,
+.small-button.delete {
+  color: #64b5ff;
+}
+
+.small-button.delete:hover {
+  background: #102d4b;
+  color: #9ed2ff;
+}
+
+.help-dot {
+  background: #64b5ff;
+  box-shadow: 0 0 0 4px #142b45;
+}
+
+.status.available,
+.status.active {
+  background: #103657;
+  color: #77c4ff;
+}
+
+.status.rented,
+.status.confirmed {
+  background: #172b48;
+  color: #8fc9ff;
+}
+
+.status.service,
+.status.completed {
+  background: #202d40;
+  color: #b4c9e6;
+}
+
+.table-panel tr:hover {
+  background: #111f32;
+}
+
+.mini-avatar,
+.activity-avatar.green,
+.activity-avatar.peach,
+.activity-avatar.blue {
+  background: #17375a !important;
+  color: #9ed2ff;
+}
+
+.modal-backdrop {
+  background: rgba(0, 3, 9, .82);
+}
+
+.toast {
+  background: #d9edff;
+  color: #0a2946;
+}
+
+.dashboard-command {
+  border-color: #1d5b91;
+  background: linear-gradient(105deg, #0d3154, #0d1726 72%);
+}
+
+.command-signal > span,
+.schedule-line {
+  background: #64b5ff;
+}
+
+.command-signal > span {
+  box-shadow: 0 0 0 5px rgba(100, 181, 255, .14);
+}
+
+.command-signal strong,
+.command-date strong,
+.command-weather strong {
+  color: #e8f1ff;
+}
+
+.command-signal small,
+.command-date small,
+.command-weather small {
+  color: #8aaed1;
+}
+
+.command-date,
+.command-weather {
+  border-color: #254968;
+}
+
+.command-weather > span {
+  color: #64b5ff;
+}
+
+.action-tile {
+  background: #0d1420;
+  border-color: #263449;
+}
+
+.action-tile:hover {
+  border-color: #347fbd;
+  background: #102238;
+}
+
+.action-tile > span {
+  background: #12385d;
+  color: #64b5ff;
+}
+
+.schedule-item {
+  border-color: #1d2c40;
+}
+
+.schedule-line {
+  border-color: #64b5ff;
+  box-shadow: 0 0 0 3px #123452;
+}
+
+.readiness-score {
+  background: #102238;
+}
+
+.readiness-score > strong,
+.readiness-score p {
+  color: #64b5ff;
+}
+
+.readiness-score > strong span {
+  color: #4d83b3;
+}
+
+.readiness-bars i {
+  background: #1b2a3d;
+}
+
+.readiness-bars u,
+.readiness-bars u.road,
+.readiness-bars u.service {
+  background: #64b5ff;
+}
+
+/* Replace legacy light surfaces that are outside the shared color tokens. */
+.topbar {
+  background: rgba(7, 11, 18, .94);
+  border-bottom-color: #263449;
+}
+
+.breadcrumb,
+.breadcrumb span,
+.breadcrumb b {
+  color: #71839b;
+}
+
+.breadcrumb strong {
+  color: #b9d9fa;
+}
+
+.search-field {
+  background: #0d1420;
+  color: #8d9bb0;
+}
+
+.search-field input {
+  background: transparent;
+  color: #e8f1ff;
+}
+
+.search-field input::placeholder {
+  color: #71839b;
+}
+
+.primary-button {
+  background: #1d6ca8;
+  color: #e8f1ff;
+}
+
+.primary-button:hover {
+  background: #2b86c9;
+}

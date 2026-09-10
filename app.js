@@ -15,11 +15,10 @@ const seed = { vehicles: [
 ], customers: [
   {id:'CU-0901', name:'Maya Chen', initials:'MC', email:'maya.chen@email.com', phone:'+1 415 203 1842', bookings:4, spent:'$682', last:'Sep 12, 2024'},
   {id:'CU-0902', name:'Noah Williams', initials:'NW', email:'noah.w@email.com', phone:'+1 312 555 0182', bookings:2, spent:'$408', last:'Sep 12, 2024'},
-  {id:'CU-0903', name:'Olivia Brown', initials:'OB', email:'olivia.b@email.com', phone:'+1 646 555 0191', bookings:6, spent:'$1,204', last:'Sep 11, 2024'},
-  {id:'CU-0904', name:'Ethan Davis', initials:'ED', email:'ethan.davis@email.com', phone:'+1 206 555 0147', bookings:3, spent:'$524', last:'Sep 08, 2024'},
-  {id:'CU-0905', name:'Sofia Patel', initials:'SP', email:'sofia.patel@email.com', phone:'+1 415 555 0168', bookings:1, spent:'$190', last:'Sep 07, 2024'}
+  {id:'CU-0903', name:'Olivia Brown', initials:'OB', email:'olivia.b@email.com', phone:'+1 646 555 0191', bookings:6, spent:'$1,204', last:'Sep 11, 2024'}
 ]};
 let data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || seed;
+if (data.customers.length > 3) { data.customers = data.customers.slice(0, 3); localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
 const $ = (selector, parent=document) => parent.querySelector(selector);
 const $$ = (selector, parent=document) => [...parent.querySelectorAll(selector)];
 const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
