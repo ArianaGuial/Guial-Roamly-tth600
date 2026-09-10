@@ -696,3 +696,13 @@ body {
 .primary-button:hover {
   background: #2b86c9;
 }
+
+.metric-card.accent-green {
+  background: #102d4b;
+  border-color: #1d6ca8;
+}
+
+.metric-card.accent-green .metric-icon,
+.metric-card.accent-green em {
+  color: #64b5ff;
+}
