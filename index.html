@@ -15,19 +15,19 @@
     <aside class="sidebar">
       <a class="brand" href="#dashboard" aria-label="Roamly home">
         <span class="brand-mark">R</span>
-        <span>roamly</span>
+        <span>ROAMLY</span>
       </a>
       <p class="nav-label">Workspace</p>
       <nav class="nav-list" aria-label="Main navigation">
         <a class="nav-item active" href="#dashboard" data-page="dashboard"><span class="nav-icon">◈</span> Overview</a>
-        <a class="nav-item" href="#fleet" data-page="fleet"><span class="nav-icon">▣</span> Fleet <span class="nav-count" id="fleetCount">0</span></a>
+        <a class="nav-item" href="#fleet" data-page="fleet"><span class="nav-icon">▣</span> Cars <span class="nav-count" id="fleetCount">0</span></a>
         <a class="nav-item" href="#bookings" data-page="bookings"><span class="nav-icon">▤</span> Bookings <span class="nav-count" id="bookingCount">0</span></a>
         <a class="nav-item" href="#customers" data-page="customers"><span class="nav-icon">◎</span> Customers</a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="help-card"><span class="help-dot"></span><div><strong>Need a hand?</strong><small>Check the operations guide</small></div><span>↗</span></div>
-        <div class="user-block"><div class="avatar">AS</div><div><strong>Alex Smith</strong><small>Branch manager</small></div><span class="more">•••</span></div>
+        <div class="user-block"><div class="avatar">AS</div><div><strong>Ariana Guial</strong><small>Branch manager</small></div><span class="more">•••</span></div>
       </div>
+      <div class="top-actions top-nav-actions"><button class="icon-button" title="Search" aria-label="Search">⌕</button><button class="icon-button" title="Notifications" aria-label="Notifications">♢<i></i></button><div class="top-avatar">AS</div></div>
     </aside>
 
     <main class="main-content">
@@ -46,7 +46,7 @@
         <article class="panel table-panel"><div class="panel-heading"><div><h2>Upcoming bookings</h2><p>Your next scheduled pickups and returns</p></div><button class="text-button" data-page-link="bookings">View all <span>→</span></button></div><div class="table-scroll"><table><thead><tr><th>Booking</th><th>Customer</th><th>Vehicle</th><th>Dates</th><th>Status</th><th></th></tr></thead><tbody id="upcomingTable"></tbody></table></div></article>
       </section>
 
-      <section class="page hidden" id="fleetPage"><div class="page-heading"><div><p class="eyebrow">Operations / Fleet</p><h1>Your fleet</h1><p class="subheading">Keep every vehicle ready for its next adventure.</p></div><button class="primary-button" data-open-modal="vehicle"><span>＋</span> Add vehicle</button></div><div class="toolbar"><div class="search-field"><span>⌕</span><input id="fleetSearch" placeholder="Search vehicles..." /></div><div class="filter-group"><button class="filter-button active" data-fleet-filter="all">All <span id="allFleetCount">0</span></button><button class="filter-button" data-fleet-filter="available">Available</button><button class="filter-button" data-fleet-filter="rented">Rented</button><button class="filter-button" data-fleet-filter="service">In service</button></div></div><div class="fleet-grid" id="fleetGrid"></div></section>
+      <section class="page hidden" id="fleetPage"><div class="page-heading"><div><p class="eyebrow">Operations / Fleet</p><h1>Your Cars</h1><p class="subheading">Keep every vehicle ready for its next adventure.</p></div><button class="primary-button" data-open-modal="vehicle"><span>＋</span> Add vehicle</button></div><div class="toolbar"><div class="search-field"><span>⌕</span><input id="fleetSearch" placeholder="Search vehicles..." /></div><div class="filter-group"><button class="filter-button active" data-fleet-filter="all">All <span id="allFleetCount">0</span></button><button class="filter-button" data-fleet-filter="available">Available</button><button class="filter-button" data-fleet-filter="rented">Rented</button><button class="filter-button" data-fleet-filter="service">In service</button></div></div><div class="fleet-grid" id="fleetGrid"></div></section>
 
       <section class="page hidden" id="bookingsPage"><div class="page-heading"><div><p class="eyebrow">Operations / Bookings</p><h1>Bookings</h1><p class="subheading">Track every pickup, return, and reservation in one place.</p></div><button class="primary-button" data-open-modal="booking"><span>＋</span> New booking</button></div><div class="toolbar"><div class="search-field"><span>⌕</span><input id="bookingSearch" placeholder="Search bookings..." /></div><div class="filter-group"><button class="filter-button active" data-booking-filter="all">All</button><button class="filter-button" data-booking-filter="confirmed">Confirmed</button><button class="filter-button" data-booking-filter="active">Active</button><button class="filter-button" data-booking-filter="completed">Completed</button></div></div><article class="panel table-panel full-table"><div class="table-scroll"><table><thead><tr><th>Booking ID</th><th>Customer</th><th>Vehicle</th><th>Pickup & return</th><th>Total</th><th>Status</th><th></th></tr></thead><tbody id="bookingsTable"></tbody></table></div></article></section>
 

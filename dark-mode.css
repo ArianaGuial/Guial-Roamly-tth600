@@ -706,3 +706,157 @@ body {
 .metric-card.accent-green em {
   color: #64b5ff;
 }
+
+@media (min-width: 851px) {
+  .car-photo {
+    height: 230px;
+    background: #090f19;
+  }
+
+  .car-photo img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    object-fit: cover;
+    object-position: center 62%;
+    filter: brightness(1.16) contrast(1.12) saturate(1.08);
+  }
+}
+
+/* Full-width top navigation */
+.app-shell {
+  display: block;
+}
+
+.sidebar {
+  width: 100%;
+  height: 76px;
+  min-height: 76px;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  padding: 0 32px;
+  background: #090f19;
+  border-right: 0;
+  border-bottom: 1px solid #263449;
+}
+
+.brand {
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.nav-label,
+.sidebar-bottom,
+.main-content > .topbar {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 6px;
+  min-width: 0;
+}
+
+.nav-item {
+  position: relative;
+  gap: 8px;
+  padding: 0 15px;
+  border-radius: 0;
+  color: #8194ad;
+  white-space: nowrap;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: transparent;
+  color: #8ecbff;
+}
+
+.nav-item.active::after {
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  left: 14px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: #4eaeef;
+  content: '';
+}
+
+.nav-icon {
+  color: currentColor;
+  font-size: 14px;
+}
+
+.nav-count {
+  color: #5f9acb;
+}
+
+.top-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    gap: 18px;
+    padding: 0 18px;
+  }
+
+  .nav-list {
+    overflow-x: auto;
+  }
+
+  .nav-item {
+    padding: 0 10px;
+  }
+
+  .nav-item.active::after {
+    right: 9px;
+    left: 9px;
+  }
+
+  .top-nav-actions .icon-button {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .sidebar {
+    height: 68px;
+    min-height: 68px;
+    gap: 16px;
+    padding: 0 14px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .brand-mark {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-item {
+    font-size: 11px;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+}

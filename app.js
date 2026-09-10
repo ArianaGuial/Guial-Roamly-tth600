@@ -2,9 +2,9 @@ const STORAGE_KEY = 'roamly-data-v1';
 const seed = { vehicles: [
   {id:'VH-1042', make:'Toyota', model:'Corolla Hybrid', year:'2023', type:'Economy', price:'42', status:'available', color:'green', image:'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80'},
   {id:'VH-1047', make:'Volkswagen', model:'T-Roc', year:'2024', type:'Compact SUV', price:'68', status:'rented', color:'blue', image:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80'},
-  {id:'VH-1051', make:'Audi', model:'A4 Avant', year:'2023', type:'Premium', price:'95', status:'service', color:'orange', image:'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80'},
+  {id:'VH-1051', make:'Audi', model:'A4 Avant', year:'2023', type:'Premium', price:'95', status:'service', color:'orange', image:'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=85'},
   {id:'VH-1058', make:'Tesla', model:'Model 3', year:'2024', type:'Electric', price:'88', status:'available', color:'silver', image:'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80'},
-  {id:'VH-1062', make:'Volvo', model:'XC40', year:'2023', type:'Compact SUV', price:'76', status:'available', color:'blue', image:'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80'},
+  {id:'VH-1062', make:'Volvo', model:'XC40', year:'2023', type:'Compact SUV', price:'76', status:'available', color:'silver', image:'https://commons.wikimedia.org/wiki/Special:FilePath/2019_Volvo_XC40_T5_Momentum_in_Bright_Silver_Metallic%2C_front_left%2C_2025-09-22.jpg?width=800'},
   {id:'VH-1068', make:'Kia', model:'Sportage', year:'2024', type:'SUV', price:'72', status:'rented', color:'green', image:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80'}
 ], bookings: [
   {id:'BK-02841', customer:'Maya Chen', initials:'MC', vehicle:'Toyota Corolla Hybrid', vehicleId:'VH-1042', dates:'Sep 12 – Sep 15', total:'$126', status:'active'},
@@ -19,6 +19,9 @@ const seed = { vehicles: [
 ]};
 let data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || seed;
 if (data.customers.length > 3) { data.customers = data.customers.slice(0, 3); localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+const replacementImages = {'VH-1051':'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=85','VH-1062':'https://commons.wikimedia.org/wiki/Special:FilePath/2019_Volvo_XC40_T5_Momentum_in_Bright_Silver_Metallic%2C_front_left%2C_2025-09-22.jpg?width=800'};
+data.vehicles.forEach(vehicle => { if (replacementImages[vehicle.id]) vehicle.image = replacementImages[vehicle.id]; });
+localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 const $ = (selector, parent=document) => parent.querySelector(selector);
 const $$ = (selector, parent=document) => [...parent.querySelectorAll(selector)];
 const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
