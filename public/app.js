@@ -232,3 +232,66 @@ window.addEventListener('hashchange', () => {
 });
 
 fetchVehicles();
+
+const authBackdrop = $('#authBackdrop');
+const authViews = ['signInView', 'signUpView', 'setupView'];
+
+function showAuthView(viewName) {
+  authViews.forEach(id => $('#' + id).classList.toggle('hidden', id !== viewName));
+}
+
+function finishAuthentication(profile) {
+  localStorage.setItem('roamlySession', JSON.stringify(profile));
+  authBackdrop.classList.add('hidden');
+
+  if (profile.name) {
+    const initials = profile.name.split(/\s+/).filter(Boolean).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+    $$('.top-avatar').forEach(node => { node.textContent = initials; });
+    $$('.avatar').forEach(node => { node.textContent = initials; });
+  }
+  showToast(profile.setupComplete ? 'Account ready — welcome to Roamly!' : 'Signed in successfully');
+}
+
+if (!localStorage.getItem('roamlySession')) {
+  authBackdrop.classList.remove('hidden');
+} else {
+  authBackdrop.classList.add('hidden');
+}
+
+document.addEventListener('click', event => {
+  const viewButton = event.target.closest('[data-auth-view]');
+  if (viewButton) {
+    showAuthView(viewButton.dataset.authView === 'signUp' ? 'signUpView' : 'signInView');
+  }
+
+  const accountButton = event.target.closest('[data-auth-open]');
+  if (accountButton) {
+    showAuthView('signInView');
+    authBackdrop.classList.remove('hidden');
+  }
+
+  if (event.target.id === 'forgotPassword') {
+    event.preventDefault();
+    showToast('Password reset instructions will be sent to your email');
+  }
+});
+
+$('#signInForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const values = Object.fromEntries(new FormData(event.target));
+  finishAuthentication({ name: 'Ariana Guial', email: values.email, setupComplete: true });
+});
+
+$('#signUpForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const values = Object.fromEntries(new FormData(event.target));
+  localStorage.setItem('roamlyPendingProfile', JSON.stringify({ name: `${values.firstName} ${values.lastName}`, email: values.email }));
+  showAuthView('setupView');
+});
+
+$('#setupForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const values = Object.fromEntries(new FormData(event.target));
+  const pending = JSON.parse(localStorage.getItem('roamlyPendingProfile') || '{}');
+  finishAuthentication({ ...pending, workspace: values.workspace, role: values.role, phone: values.phone, setupComplete: true });
+});

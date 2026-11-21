@@ -11,6 +11,65 @@
   <link rel="stylesheet" href="dark-mode.css" />
 </head>
 <body>
+  <div class="auth-backdrop" id="authBackdrop" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="auth-layout">
+      <section class="auth-brand-panel">
+        <a class="auth-brand" href="#" aria-label="Roamly"><span class="brand-mark">R</span><span>ROAMLY</span></a>
+        <div class="auth-illustration">
+          <span class="auth-orbit orbit-one"></span><span class="auth-orbit orbit-two"></span>
+          <div class="auth-road"><span class="road-dash"></span></div>
+          <div class="auth-car"><span class="car-roof"></span><span class="car-body"></span><span class="wheel wheel-left"></span><span class="wheel wheel-right"></span></div>
+        </div>
+        <blockquote>“Move every customer closer to their next great journey.”</blockquote>
+        <p>Fleet operations, beautifully in control.</p>
+      </section>
+
+      <section class="auth-form-panel">
+        <div class="auth-form-wrap">
+          <div class="auth-view" id="signInView">
+            <p class="auth-eyebrow">Welcome back</p>
+            <h1 id="authTitle">Sign in to Roamly</h1>
+            <p class="auth-subtitle">Manage your fleet and reservations from one calm workspace.</p>
+            <form class="auth-form" id="signInForm">
+              <label>Email address<input type="email" name="email" placeholder="you@company.com" required></label>
+              <label class="password-field"><span class="password-label"><span>Password</span><a href="#" id="forgotPassword">Forgot password?</a></span><input type="password" name="password" placeholder="Enter your password" required minlength="6"></label>
+              <label class="auth-checkbox"><input type="checkbox" name="remember" checked><span>Keep me signed in</span></label>
+              <button class="auth-primary" type="submit">Sign in <span>→</span></button>
+            </form>
+            <p class="auth-switch">New to Roamly? <button type="button" data-auth-view="signUp">Create an account</button></p>
+          </div>
+
+          <div class="auth-view hidden" id="signUpView">
+            <p class="auth-eyebrow">Get started</p>
+            <h1>Create your account</h1>
+            <p class="auth-subtitle">Set up a workspace for your rental team.</p>
+            <form class="auth-form" id="signUpForm">
+              <div class="auth-name-grid"><label>First name<input type="text" name="firstName" placeholder="Ariana" required></label><label>Last name<input type="text" name="lastName" placeholder="Guial" required></label></div>
+              <label>Work email<input type="email" name="email" placeholder="you@company.com" required></label>
+              <label>Password<input type="password" name="password" placeholder="At least 8 characters" required minlength="8"></label>
+              <label class="auth-checkbox"><input type="checkbox" name="terms" required><span>I agree to the Terms and Privacy Policy</span></label>
+              <button class="auth-primary" type="submit">Continue <span>→</span></button>
+            </form>
+            <p class="auth-switch">Already have an account? <button type="button" data-auth-view="signIn">Sign in</button></p>
+          </div>
+
+          <div class="auth-view hidden" id="setupView">
+            <div class="setup-progress"><span class="active"></span><span class="active"></span><span></span></div>
+            <p class="auth-eyebrow">Finish setup · 2 of 3</p>
+            <h1>Complete your account</h1>
+            <p class="auth-subtitle">A few details to personalize your Roamly workspace.</p>
+            <form class="auth-form" id="setupForm">
+              <label>Workspace name<input type="text" name="workspace" placeholder="Downtown Rentals" required></label>
+              <label>Role<select name="role" required><option value="">Select your role</option><option>Branch manager</option><option>Fleet administrator</option><option>Reservation specialist</option><option>Owner</option></select></label>
+              <label>Phone number<input type="tel" name="phone" placeholder="+1 555 000 0000" required></label>
+              <button class="auth-primary" type="submit">Finish setup <span>✓</span></button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#dashboard" aria-label="Roamly home">
@@ -25,15 +84,15 @@
         <a class="nav-item" href="#customers" data-page="customers"><span class="nav-icon">◎</span> Customers</a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="user-block"><div class="avatar">AS</div><div><strong>Ariana Guial</strong><small>Branch manager</small></div><span class="more">•••</span></div>
+        <div class="user-block" data-auth-open role="button" tabindex="0"><div class="avatar">AS</div><div><strong>Ariana Guial</strong><small>Branch manager</small></div><span class="more">•••</span></div>
       </div>
-      <div class="top-actions top-nav-actions"><button class="icon-button" title="Search" aria-label="Search">⌕</button><button class="icon-button" title="Notifications" aria-label="Notifications">♢<i></i></button><div class="top-avatar">AS</div></div>
+      <div class="top-actions top-nav-actions"><button class="icon-button" title="Search" aria-label="Search">⌕</button><button class="icon-button" title="Notifications" aria-label="Notifications">♢<i></i></button><button class="top-avatar" data-auth-open title="Account" aria-label="Account">AS</button></div>
     </aside>
 
     <main class="main-content">
       <header class="topbar">
         <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbPage">Overview</strong></div>
-        <div class="top-actions"><button class="icon-button" title="Search" aria-label="Search">⌕</button><button class="icon-button" title="Notifications" aria-label="Notifications">♢<i></i></button><div class="top-avatar">AS</div></div>
+        <div class="top-actions"><button class="icon-button" title="Search" aria-label="Search">⌕</button><button class="icon-button" title="Notifications" aria-label="Notifications">♢<i></i></button><button class="top-avatar" data-auth-open title="Account" aria-label="Account">AS</button></div>
       </header>
 
       <section class="page" id="dashboardPage">
